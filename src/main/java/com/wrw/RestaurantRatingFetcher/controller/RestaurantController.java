@@ -1,5 +1,6 @@
 package com.wrw.RestaurantRatingFetcher.controller;
 
+import com.wrw.RestaurantRatingFetcher.domain.ZomatoAPIResponse;
 import com.wrw.RestaurantRatingFetcher.service.RestaurantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,9 @@ public class RestaurantController {
     }
 
     @GetMapping("restaurant/{restaurantName}")
-    public Mono<String>getMovieByTitle(@PathVariable String restaurantName){
+    public Mono<ZomatoAPIResponse>getRestaurantByTitle(@PathVariable String restaurantName){
 //        String apiKey = environment.getProperty("app.api.key");
         System.out.println(restaurantName);
-        return restaurantService.searchMovieByTitle(restaurantName);
+        return restaurantService.searchRestaurantByTitle(restaurantName);
     }
 }
